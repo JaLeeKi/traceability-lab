@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     rollbar.info('html file served successfully')
 })
 
-app.post('/api/movie', (req, res) => {
+app.post('/api/movies', (req, res) => {
     let {title} = req.body
     title = title.trim()
 
