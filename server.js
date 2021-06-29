@@ -29,7 +29,7 @@ app.get('/crash', (req, res) => {
 
 
 const port = process.env.PORT || 5050;
-
+app.use(rollbar.errorHandler())
 app.listen(port, function() {
     console.log(`Server livin on ${port}`)
 })
