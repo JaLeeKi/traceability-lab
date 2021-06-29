@@ -1,8 +1,12 @@
 const express = require('express');
 const path = require ('path');
 const app = express();
-// const Rollbar = require('rollbar');
-
+const Rollbar = require("rollbar");
+const rollbar = new Rollbar({
+  accessToken: '08fba530c8264ccc8aa22af373fdc2cd',
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
 
 
 
@@ -13,7 +17,7 @@ app.use(express.json())
 
 
 app.get('/', function(req, res) {
-    // Rollbar.log('Hello World')
+    rollbar.log('Hello World')
     res.sendFile(path.join(__dirname, '/client/index.html'))
 })
 
