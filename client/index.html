@@ -23,10 +23,10 @@
 
         function submitHandler(e) {
             e.preventDefault()
-            axios.post('/api/movies', {name: nameInput.value})
+            axios.post('/api/movies', {name: movieInput.value})
                 .then(res => {
                     container.innerHTML = ''
-                    nameInput.value = ''
+                    movieInput.value = ''
 
                     res.data.forEach((movieTitle) => {
                         container.innerHTML += `<p>${movieTitle}</p>`
