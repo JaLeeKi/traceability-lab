@@ -3,13 +3,15 @@ const path = require ('path');
 const app = express();
 const Rollbar = require("rollbar");
 const rollbar = new Rollbar({
-  accessToken: '08fba530c8264ccc8aa22af373fdc2cd',
-  captureUncaught: true,
-  captureUnhandledRejections: true
+    accessToken: '08fba530c8264ccc8aa22af373fdc2cd',
+    captureUncaught: true,
+    captureUnhandledRejections: true
 });
 
+app.use(express.json())
+app.use('/styles', express.static('./client/styles.css'))
 
-let movies = [] // we'll hold any students added here
+let movies = [] // we'll hold any movies added here
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/index.html'))
@@ -48,7 +50,6 @@ app.post('/api/movies', (req, res) => {
 
 
 
-app.use(express.json())
 
 
 // app.get('/', function(req, res) {

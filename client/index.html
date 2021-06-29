@@ -23,7 +23,7 @@
 
         function submitHandler(e) {
             e.preventDefault()
-            axios.post('/api/movies', {name: movieInput.value})
+            axios.post('/api/movies', {title: movieInput.value})
                 .then(res => {
                     container.innerHTML = ''
                     movieInput.value = ''
@@ -37,10 +37,10 @@
 
                     const notif = document.createElement('aside')
                     notif.innerHTML = `<p>${err.response.data}</p>
-                    <button class="close">close</button>`
+                    <button class="remove">remove</button>`
                     document.body.appendChild(notif)
 
-                    document.querySelectorAll('.close').forEach(btn => {
+                    document.querySelectorAll('.remove').forEach(btn => {
                         btn.addEventListener('click', (e) => {
                             e.target.parentNode.remove()
                         })
