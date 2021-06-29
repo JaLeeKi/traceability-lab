@@ -22,7 +22,7 @@ app.get('/', function(req, res) {
 })
 
 app.get('/crash', (req, res) => {
-    res.crashRollbar
+    res.crashRollbar()
 })
 
 
