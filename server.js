@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require ('path');
 const app = express();
-const Rollbar = require('rollbar');
+// const Rollbar = require('rollbar');
 
 
 
@@ -13,7 +13,7 @@ app.use(express.json())
 
 
 app.get('/', function(req, res) {
-    Rollbar.log('Hello World')
+    // Rollbar.log('Hello World')
     res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
