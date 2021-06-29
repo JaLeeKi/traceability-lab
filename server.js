@@ -17,12 +17,25 @@ app.use(express.json())
 
 
 app.get('/', function(req, res) {
-    rollbar.log('Hello World')
-    res.sendFile(path.join(__dirname, '/client/index.html'))
+    rollbar.log('Hello World');
+    rollbar.info('html file served successfully');
+    res.sendFile(path.join(__dirname, '/client/index.html'));
 })
 
 app.get('/crash', (req, res) => {
     res.crashRollbar()
+})
+
+app.get('/error', (req, res) => {
+    rollbar.error('User tried to access incorrect path')
+})
+
+app.get('/critical', (req, res) => {
+    rollbar.critical("Crash while processing payment")
+})
+
+app.get('/warning', (req, res) => {
+    rollbar.warning("API unavailable")
 })
 
 
